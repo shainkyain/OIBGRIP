@@ -1,0 +1,60 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class guess {
+
+       void game() {
+            System.out.printf("%27s\n","game begin");
+           System.out.println("************GUESSED NUM B/W 1 TO 100**************");
+            Random r = new Random();
+            byte a = (byte) r.nextInt(1,100);
+            Scanner sc = new Scanner(System.in);
+            byte i = 1;
+
+            while (true) {
+                byte b = sc.nextByte();
+
+                if (b == a) {
+                    System.out.println("guessed no. is correct ");
+                    break;
+                } else System.out.println("retry");
+                i++;
+                if (b > a) System.out.println("no. is smaller ");
+                else System.out.println("no. is greater ");
+            }
+            System.out.format("%20s ", "Game Over\n");
+            System.out.println("no. of attempts takes " + i);
+           if (i<=3) System.out.format( "%20s ", "YOU SCORED PERFECT 100\n");
+           else if  (i<=5) System.out.format( "%20s ", "YOU SCORED  70\n");
+           else if (i<=7) System.out.format( "%20s ", "YOU SCORED  50\n");
+           else if (i<=10) System.out.format( "%20s ", "YOU SCORED  20\n");
+           else if (i<=100) System.out.format( "%20s ", "YOU SCORED NOTHING\n");
+
+            for (byte z =1 ; z< 50 ; z++){
+                System.out.print("♦");
+            }
+           System.out.println("\n");
+           System.out.printf("%20s\n","TO REBEGIN THE GAME");
+           beginingPart();
+
+        }
+    public static void main(String ...args){
+       guess y = new guess();
+       y.beginingPart();
+
+        }
+
+    public void beginingPart()
+        {
+            System.out.println("enter 1, ☺ START");
+        System.out.println("enter 2, ☺ EXIT");
+        Scanner sc = new Scanner(System.in);
+        byte x = sc.nextByte();
+        guess g = new guess();
+        if(x==1) g.game();
+        else {
+            System.out.format("\n%20s", "BE BACK SOON");
+            System.exit(0);
+        }
+       }
+    }
